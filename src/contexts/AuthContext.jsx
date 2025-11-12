@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    removeToken("token");
+    localStorage.clear()
     setToken(null);
     setUser(null);
   };
