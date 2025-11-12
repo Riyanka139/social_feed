@@ -41,6 +41,8 @@ const PostFeed = () => {
   }, [debounced, sort]);
 
   const loadNext = useCallback(async () => {
+    console.log("jhj");
+    
     const next = page + 1;
     getPost({ page: next, search: debounced, sort });
   }, [page, getPost, debounced, sort]);
@@ -60,10 +62,7 @@ const PostFeed = () => {
             <MenuItem value="most_commented">Most Commented</MenuItem>
             <MenuItem value="alpha">Alphabetical</MenuItem>
           </Select>
-          {/* <Select value={mode} onChange={(e) => setMode(e.target.value)}>
-          <MenuItem value="infinite">Infinite</MenuItem>
-          <MenuItem value="loadmore">Load More</MenuItem>
-        </Select> */}
+
           <Button
             variant="contained"
             onClick={() => {

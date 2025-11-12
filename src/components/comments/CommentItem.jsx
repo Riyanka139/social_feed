@@ -63,7 +63,6 @@ const CommentItem = ({ comment, postId }) => {
           />
         </Box>
       </Box>
-      {text}
       {isEdit ? (
         <TextField
           label="Edit comment (max 200 chars)"

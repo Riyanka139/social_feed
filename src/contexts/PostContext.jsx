@@ -29,9 +29,11 @@ export const PostsProvider = ({ children }) => {
   };
 
   // paging
-  const getPost = ({data=allPost, page = 1, limit = 10, search = "", sort = "latest" } ={}) => {
+  const getPost = ({data, page = 1, limit = 10, search = "", sort = "latest" } ={}) => {
     const start = (page - 1) * limit;
-    let items = [...data];
+    console.log(allPost,'hj', search);
+    
+    let items = data ? [...data] : [...allPost];
 
     if (search) {
       items = items.filter((p) =>
@@ -55,7 +57,7 @@ export const PostsProvider = ({ children }) => {
     setPosts((prev) => {
       const updatedPosts = page === 1 ? items : [...prev, ...items];
 
-      if (updatedPosts.length >= allPost.length) {
+      if (page > 1 && updatedPosts.length >= allPost.length) {
         setHasMore(false);
       }
 
